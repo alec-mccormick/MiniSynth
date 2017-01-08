@@ -306,6 +306,7 @@
 
 /* Begin PBXFileReference section */
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		26CD83F41E22EE69005C26AE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		26CEAA211E22076500583C47 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		32BAE0B30371A71500C91783 /* MiniSynth_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniSynth_Prefix.pch; sourceTree = "<group>"; };
 		8BA05A680720730100365D66 /* AUSynth.r */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.rez; name = AUSynth.r; path = Source/AUSource/AUSynth.r; sourceTree = "<group>"; };
@@ -599,6 +600,7 @@
 		089C166AFE841209C02AAC07 /* RAFXResonantLPF */ = {
 			isa = PBXGroup;
 			children = (
+				26CD83F41E22EE69005C26AE /* README.md */,
 				08FB77ADFE841716C02AAC07 /* Source */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
