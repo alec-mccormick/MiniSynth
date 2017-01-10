@@ -44,7 +44,7 @@
       allowLocationSimulation = "YES">
       <PathRunnable
          runnableDebuggingMode = "0"
-         FilePath = "/Applications/Logic Pro.app">
+         FilePath = "/Applications/AU Lab.app">
       </PathRunnable>
       <MacroExpansion>
          <BuildableReference

@@ -65,6 +65,7 @@
     IBOutlet WPRotaryKnobMS* wpRotaryKnob_13;
     IBOutlet WPRotaryKnobMS* wpRotaryKnob_14;
     IBOutlet WPRotaryKnobMS* wpRotaryKnob_15; // unused
+    IBOutlet WPOptionMenuGroupMS* wpOMG_8;
     
     // --- column 5
     IBOutlet WPRotaryKnobMS* wpRotaryKnob_16;

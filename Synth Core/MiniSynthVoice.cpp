@@ -10,7 +10,7 @@ CMiniSynthVoice::CMiniSynthVoice(void)
 	m_pOsc4 = &m_Osc4;
 
 	// --- filters
-	m_pFilter1 = &m_MoogLadderFilter;
+	m_pFilter1 = &m_MultiFilter;
 	m_pFilter2 = NULL;
 
 	// --- experiment with NLP
@@ -18,7 +18,7 @@ CMiniSynthVoice::CMiniSynthVoice(void)
     	
 	// --- for passband gain comp in MOOG; can make user adjustable, the higher m_dAuxControl, the more passband gain 
 	//     0 <= m_dAuxControl <= 1
-	m_MoogLadderFilter.m_dAuxControl = 0.0; 
+	m_MultiFilter.m_dAuxControl = 0.0;
 
     // --- voice mode 0
     m_Osc1.m_uWaveform = SAW1;
@@ -131,6 +131,10 @@ void CMiniSynthVoice::setSampleRate(double dSampleRate)
 void CMiniSynthVoice::prepareForPlay()
 {
 	CVoice::prepareForPlay();
+    
+    // Init MultiFilter modulation links
+    m_MultiFilter.initModulationMatrixLinks();
+    
 	reset();
 }
 

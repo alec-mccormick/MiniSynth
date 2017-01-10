@@ -16,6 +16,7 @@ enum {
  	FILTER_Q,
 	EG1_TO_FILTER_INTENSITY,
     FILTER_KEYTRACK_INTENSITY,
+    FILTER_MODE,
 	
     EG1_ATTACK_MSEC,
 	EG1_DECAY_MSEC,
@@ -152,6 +153,10 @@ enum {
 #define MIN_FILTER_Q 1.0
 #define MAX_FILTER_Q 10.0
 #define DEFAULT_FILTER_Q 1.0
+
+#define MIN_FILTER_MODE 0
+#define MAX_FILTER_MODE 14
+#define DEFAULT_FILTER_MODE 0
 
 // sync, one shot, free
 #define MIN_LFO_MODE 0

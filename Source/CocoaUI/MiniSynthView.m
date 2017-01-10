@@ -143,6 +143,13 @@ void EventListenerDispatcher (void *inRefCon, void *inObject, const AudioUnitEve
     [controlArray addObject:wpRotaryKnob_7];
     [wpRotaryKnob_7 setKnobImageArray:knobImages];
     
+    [wpOMG_8 initControlWithName:@"Filter Mode"
+                    controlIndex:FILTER_MODE
+                      enumString:@"ML LPF4,ML LPF2,ML BPF4,ML BPF2,ML HPF4,ML HPF2,OP LPF1,OP HPF1,SEM LPF2,SEM BPF2,SEM HPF2,SEM BSF2"
+                             def:DEFAULT_FILTER_MODE
+                   verySmallFont:NO];
+    [controlArray addObject:wpOMG_8];
+    
     // --- column 3
     [wpRotaryKnob_8 initControlWithName:@"Attack"
                            controlIndex:EG1_ATTACK_MSEC
@@ -468,6 +475,51 @@ void EventListenerDispatcher (void *inRefCon, void *inObject, const AudioUnitEve
 
     
     
+    
+    
+    // --- EG 2
+    [wpRotaryKnob_33 initControlWithName:@"Attack"
+                           controlIndex:EG2_ATTACK_MSEC
+                                    min:MIN_EG_ATTACK_TIME
+                                    max:MAX_EG_ATTACK_TIME
+                                    def:DEFAULT_EG_ATTACK_TIME
+                             voltOctave:NO
+                         integerControl:NO];
+    [controlArray addObject:wpRotaryKnob_33];
+    [wpRotaryKnob_33 setKnobImageArray:knobImages];
+    
+    [wpRotaryKnob_34 initControlWithName:@"Decay"
+                           controlIndex:EG2_DECAY_MSEC
+                                    min:MIN_EG_DECAY_TIME
+                                    max:MAX_EG_DECAY_TIME
+                                    def:DEFAULT_EG_DECAY_TIME
+                             voltOctave:NO
+                         integerControl:NO];
+    [controlArray addObject:wpRotaryKnob_34];
+    [wpRotaryKnob_34 setKnobImageArray:knobImages];
+    
+    [wpRotaryKnob_35 initControlWithName:@"Sustain"
+                            controlIndex:EG2_SUSTAIN_LEVEL
+                                     min:MIN_EG_SUSTAIN_LEVEL
+                                     max:MAX_EG_SUSTAIN_LEVEL
+                                     def:DEFAULT_EG_SUSTAIN_LEVEL
+                              voltOctave:NO
+                          integerControl:NO];
+    [controlArray addObject:wpRotaryKnob_35];
+    [wpRotaryKnob_35 setKnobImageArray:knobImages];
+    
+    [wpRotaryKnob_36 initControlWithName:@"Release"
+                            controlIndex:EG2_RELEASE_MSEC
+                                     min:MIN_EG_RELEASE_TIME
+                                     max:MAX_EG_RELEASE_TIME
+                                     def:DEFAULT_EG_RELEASE_TIME
+                              voltOctave:NO
+                          integerControl:NO];
+    [controlArray addObject:wpRotaryKnob_36];
+    [wpRotaryKnob_36 setKnobImageArray:knobImages];
+    
+    
+    
     //   NSString* path = [[[NSBundle bundleForClass:[MiniSynthView class]] pathForResource:@"lightGreyBrushed" ofType: @"bmp"] autorelease];
     NSString* path = [[NSBundle bundleForClass:[MiniSynthView class]] pathForResource:@"medGreyBrushed" ofType: @"bmp"];
     backImage = [[NSImage alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path]];
@@ -624,6 +676,33 @@ void EventListenerDispatcher (void *inRefCon, void *inObject, const AudioUnitEve
     
     // --- paint it
     if(image)[image drawInRect:groupRect7 fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:alpha];
+    
+    
+    
+    
+    
+    
+    // --- column EG 2
+    //
+    // --- top knob
+    NSRect knob33Rect = [wpRotaryKnob_33 frame];
+    x = NSMinX(knob33Rect);
+    w = NSWidth(knob33Rect);
+    
+    y = NSMinY(knob33Rect);
+    
+    // --- height of col
+    h = y + NSHeight(knob33Rect) + 50;
+    
+    // --- group frame rect
+    NSRect groupRect8 = NSMakeRect(x, yOffset, w, h);
+    
+    // --- paint it
+    if(image)[image drawInRect:groupRect8 fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:alpha];
+
+    
+    
+    
     
  	[super drawRect: rect];	// we call super to draw all other controls after we have filled the background
 

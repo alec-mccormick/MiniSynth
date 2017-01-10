@@ -3,6 +3,7 @@
 #include "voice.h"
 #include "QBLimitedOscillator.h"
 #include "MoogLadderFilter.h"
+#include "MultiFilter.h"
 
 class CMiniSynthVoice : public CVoice
 {
@@ -18,7 +19,8 @@ protected:
 	CQBLimitedOscillator m_Osc4; // noise
 	
 	// --- 1 filter
-	CMoogLadderFilter m_MoogLadderFilter;
+//	CMoogLadderFilter m_MoogLadderFilter;
+    CMultiFilter m_MultiFilter;
 
 	// --- repeat of enum for easier coding
 	enum {Saw3,Sqr3,Saw2Sqr,Tri2Saw,Tri2Sqr,HSSaw};
@@ -79,7 +81,7 @@ public:
 		// --- update Voice, DCA and Filter
 		this->update();
 		m_DCA.update();	
-		m_MoogLadderFilter.update();
+		m_MultiFilter.update();
 
 		// --- slave is osc2 (running at higher freq)
 		if(m_uVoiceMode == HSSaw)
@@ -104,7 +106,7 @@ public:
 					  m_Osc4.doOscillate();
 	    
 		// --- apply the filter
-		double dLPFOut = m_MoogLadderFilter.doFilter(dOscMix);
+		double dLPFOut = m_MultiFilter.doFilter(dOscMix);
 
 		// --- apply the DCA
 		m_DCA.doDCA(dLPFOut, dLPFOut, dLeftOutput, dRightOutput);

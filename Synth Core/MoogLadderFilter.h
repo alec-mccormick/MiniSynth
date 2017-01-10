@@ -161,6 +161,8 @@ public:
 		double dLP3 = m_LPF3.doFilter(dLP2);
 		double dLP4 = m_LPF4.doFilter(dLP3);
 
+//        printf("--- Moog Ladder Do Filter \n");
+        
 		// --- Oberheim variations
 		return m_dA*dU + m_dB*dLP1 + m_dC*dLP2 + m_dD*dLP3 +  m_dE*dLP4;
 	}

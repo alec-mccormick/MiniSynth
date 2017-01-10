@@ -144,6 +144,9 @@ AUSynth::AUSynth(AudioUnit inComponentInstance)
  	Globals()->SetParameter(FILTER_Q, DEFAULT_FILTER_Q);
 	Globals()->SetParameter(EG1_TO_FILTER_INTENSITY, DEFAULT_BIPOLAR);
     Globals()->SetParameter(FILTER_KEYTRACK_INTENSITY, DEFAULT_FILTER_KEYTRACK_INTENSITY);
+    Globals()->SetParameter(FILTER_MODE, DEFAULT_FILTER_MODE);
+    
+    
     Globals()->SetParameter(EG1_ATTACK_MSEC, DEFAULT_EG_ATTACK_TIME);
  	Globals()->SetParameter(EG1_DECAY_MSEC, DEFAULT_EG_DECAY_TIME);
     Globals()->SetParameter(EG1_RELEASE_MSEC, DEFAULT_EG_RELEASE_TIME);
@@ -412,6 +415,14 @@ ComponentResult	AUSynth::GetParameterInfo(AudioUnitScope inScope,
             return noErr;
             break;
         }
+        case FILTER_MODE:
+        {
+            setAUParameterInfo(outParameterInfo, CFSTR("Filter Mode"), CFSTR(""), MIN_FILTER_MODE, MAX_FILTER_MODE, DEFAULT_FILTER_MODE);
+            return noErr;
+            break;
+        }
+            
+            
         case EG1_ATTACK_MSEC:
         {
             setAUParameterInfo(outParameterInfo, CFSTR("Attack"), CFSTR("mS"), MIN_EG_ATTACK_TIME, MAX_EG_ATTACK_TIME, DEFAULT_EG_ATTACK_TIME);
@@ -436,6 +447,37 @@ ComponentResult	AUSynth::GetParameterInfo(AudioUnitScope inScope,
             return noErr;
             break;
         }
+            
+            
+        case EG2_ATTACK_MSEC:
+        {
+            setAUParameterInfo(outParameterInfo, CFSTR("Attack"), CFSTR("mS"), MIN_EG_ATTACK_TIME, MAX_EG_ATTACK_TIME, DEFAULT_EG_ATTACK_TIME);
+            return noErr;
+            break;
+        }
+        case EG2_DECAY_MSEC:
+        {
+            setAUParameterInfo(outParameterInfo, CFSTR("Decay"), CFSTR("mS"), MIN_EG_DECAY_TIME, MAX_EG_DECAY_TIME, DEFAULT_EG_DECAY_TIME);
+            return noErr;
+            break;
+        }
+        case EG2_RELEASE_MSEC:
+        {
+            setAUParameterInfo(outParameterInfo, CFSTR("Release"), CFSTR("mS"), MIN_EG_RELEASE_TIME, MAX_EG_RELEASE_TIME, DEFAULT_EG_RELEASE_TIME);
+            return noErr;
+            break;
+        }
+        case EG2_SUSTAIN_LEVEL:
+        {
+            setAUParameterInfo(outParameterInfo, CFSTR("Sustain"), CFSTR(""), MIN_EG_SUSTAIN_LEVEL, MAX_EG_SUSTAIN_LEVEL, DEFAULT_EG_SUSTAIN_LEVEL);
+            return noErr;
+            break;
+        }
+            
+            
+            
+            
+            
         case LFO1_WAVEFORM:
         {
             setAUParameterInfo(outParameterInfo, CFSTR("LFO Waveform"), CFSTR(""), MIN_LFO_WAVEFORM, MAX_LFO_WAVEFORM, DEFAULT_LFO_WAVEFORM, false, true);
@@ -607,6 +649,13 @@ ComponentResult	AUSynth::GetParameterValueStrings(AudioUnitScope inScope,
                 break;
             }
                 
+            case FILTER_MODE:
+            {
+                setAUParameterStringList(CFSTR("ML LPF4,ML LPF2,ML BPF4,ML BPF2,ML HPF4,ML HPF2,OP LPF1,OP HPF1,SEM LPF2,SEM BPF2,SEM HPF2,SEM BSF2"), outStrings);
+                return noErr;
+                break;
+            }
+                
                 // --- all are OFF,ON 2-state switches
             case RESET_TO_ZERO:
             case FILTER_KEYTRACK:
@@ -644,6 +693,7 @@ void AUSynth::update()
     
 	m_GlobalSynthParams.voiceParams.dEG1OscModIntensity = Globals()->GetParameter(EG1_TO_OSC_INTENSITY);
 	m_GlobalSynthParams.voiceParams.dEG1Filter1ModIntensity = Globals()->GetParameter(EG1_TO_FILTER_INTENSITY);
+    m_GlobalSynthParams.voiceParams.dEG2Filter1ModIntensity = Globals()->GetParameter(EG1_TO_FILTER_INTENSITY);
 	m_GlobalSynthParams.voiceParams.dEG1DCAAmpModIntensity = Globals()->GetParameter(EG1_TO_DCA_INTENSITY);
     
 	// --- Oscillators:
@@ -670,6 +720,7 @@ void AUSynth::update()
 	// --- Filter:
 	m_GlobalSynthParams.filter1Params.dFcControl = Globals()->GetParameter(FILTER_FC);
 	m_GlobalSynthParams.filter1Params.dQControl = Globals()->GetParameter(FILTER_Q);
+    m_GlobalSynthParams.filter1Params.uFilterMode = Globals()->GetParameter(FILTER_MODE);
     
 	// --- LFO1:
 	m_GlobalSynthParams.lfo1Params.uWaveform = Globals()->GetParameter(LFO1_WAVEFORM);
@@ -683,6 +734,15 @@ void AUSynth::update()
 	m_GlobalSynthParams.eg1Params.dReleaseTime_mSec = Globals()->GetParameter(EG1_RELEASE_MSEC);
 	m_GlobalSynthParams.eg1Params.bResetToZero = (bool)Globals()->GetParameter(RESET_TO_ZERO);
 	m_GlobalSynthParams.eg1Params.bLegatoMode = (bool)Globals()->GetParameter(LEGATO_MODE);
+    
+    // --- EG2:
+    m_GlobalSynthParams.eg2Params.dAttackTime_mSec = Globals()->GetParameter(EG2_ATTACK_MSEC);
+    m_GlobalSynthParams.eg2Params.dDecayTime_mSec = Globals()->GetParameter(EG2_DECAY_MSEC);
+    m_GlobalSynthParams.eg2Params.dSustainLevel = Globals()->GetParameter(EG2_SUSTAIN_LEVEL);
+    m_GlobalSynthParams.eg2Params.dReleaseTime_mSec = Globals()->GetParameter(EG2_RELEASE_MSEC);
+    m_GlobalSynthParams.eg2Params.bResetToZero = (bool)Globals()->GetParameter(RESET_TO_ZERO);
+    m_GlobalSynthParams.eg2Params.bLegatoMode = (bool)Globals()->GetParameter(LEGATO_MODE);
+
     
 	// --- DCA:
 	m_GlobalSynthParams.dcaParams.dAmplitude_dB = Globals()->GetParameter(OUTPUT_AMPLITUDE_DB);

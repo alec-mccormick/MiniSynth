@@ -122,7 +122,7 @@ public:
 			m_dFcControl = m_pGlobalFilterParams->dFcControl;
 			m_dQControl = m_pGlobalFilterParams->dQControl;
 			m_dSaturation = m_pGlobalFilterParams->dSaturation;
-			m_uFilterType = m_pGlobalFilterParams->uFilterType; 
+			m_uFilterType = m_pGlobalFilterParams->uFilterType;
 			m_uNLP = m_pGlobalFilterParams->uNLP;
 		}
 

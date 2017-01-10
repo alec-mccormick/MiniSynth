@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		26CEAA221E22076500583C47 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CEAA211E22076500583C47 /* CoreMIDI.framework */; };
+		4A6C7F171E233655009CF673 /* SEMFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C7F151E233655009CF673 /* SEMFilter.cpp */; };
+		4A6C7F181E233655009CF673 /* SEMFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6C7F161E233655009CF673 /* SEMFilter.h */; };
+		4A6C7F1A1E2351EE009CF673 /* MultiFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C7F191E2351EE009CF673 /* MultiFilter.cpp */; };
+		4A6C7F1C1E235202009CF673 /* MultiFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6C7F1B1E235202009CF673 /* MultiFilter.h */; };
+		4A6C7F241E24570A009CF673 /* KThreeFiveFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6C7F231E24570A009CF673 /* KThreeFiveFilter.h */; };
+		4A6C7F261E24571C009CF673 /* KThreeFiveFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C7F251E24571C009CF673 /* KThreeFiveFilter.cpp */; };
 		4C69E18E083402BA00030563 /* CocoaView.nib in Resources */ = {isa = PBXBuildFile; fileRef = 4C69E18D083402BA00030563 /* CocoaView.nib */; };
 		8B41193E0749636600361ABE /* AUSynth.r in Rez */ = {isa = PBXBuildFile; fileRef = 8BA05A680720730100365D66 /* AUSynth.r */; };
 		8BA05AFC072074E100365D66 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BA05AF9072074E100365D66 /* AudioToolbox.framework */; };
@@ -309,6 +315,12 @@
 		26CD83F41E22EE69005C26AE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		26CEAA211E22076500583C47 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		32BAE0B30371A71500C91783 /* MiniSynth_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniSynth_Prefix.pch; sourceTree = "<group>"; };
+		4A6C7F151E233655009CF673 /* SEMFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SEMFilter.cpp; path = "Synth Core/SEMFilter.cpp"; sourceTree = "<group>"; };
+		4A6C7F161E233655009CF673 /* SEMFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEMFilter.h; path = "Synth Core/SEMFilter.h"; sourceTree = "<group>"; };
+		4A6C7F191E2351EE009CF673 /* MultiFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MultiFilter.cpp; path = "Synth Core/MultiFilter.cpp"; sourceTree = "<group>"; };
+		4A6C7F1B1E235202009CF673 /* MultiFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiFilter.h; path = "Synth Core/MultiFilter.h"; sourceTree = "<group>"; };
+		4A6C7F231E24570A009CF673 /* KThreeFiveFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KThreeFiveFilter.h; sourceTree = "<group>"; };
+		4A6C7F251E24571C009CF673 /* KThreeFiveFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KThreeFiveFilter.cpp; sourceTree = "<group>"; };
 		8BA05A680720730100365D66 /* AUSynth.r */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.rez; name = AUSynth.r; path = Source/AUSource/AUSynth.r; sourceTree = "<group>"; };
 		8BA05AF9072074E100365D66 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
 		8BA05AFA072074E100365D66 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = /System/Library/Frameworks/AudioUnit.framework; sourceTree = "<absolute>"; };
@@ -664,6 +676,66 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4A6C7F121E2334B7009CF673 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				C1270C26189AFAB800F21F79 /* MoogLadderFilter.cpp */,
+				C1270C27189AFAB800F21F79 /* MoogLadderFilter.h */,
+				C1270C2C189AFC2500F21F79 /* VAOnePoleFilter.cpp */,
+				C1270C2D189AFC2500F21F79 /* VAOnePoleFilter.h */,
+				C1270BFE189AF77500F21F79 /* Filter.cpp */,
+				C1270BFF189AF77500F21F79 /* Filter.h */,
+				4A6C7F151E233655009CF673 /* SEMFilter.cpp */,
+				4A6C7F161E233655009CF673 /* SEMFilter.h */,
+				4A6C7F231E24570A009CF673 /* KThreeFiveFilter.h */,
+				4A6C7F251E24571C009CF673 /* KThreeFiveFilter.cpp */,
+				4A6C7F191E2351EE009CF673 /* MultiFilter.cpp */,
+				4A6C7F1B1E235202009CF673 /* MultiFilter.h */,
+			);
+			name = Filters;
+			sourceTree = "<group>";
+		};
+		4A6C7F1D1E240D97009CF673 /* Oscillators */ = {
+			isa = PBXGroup;
+			children = (
+				C134A7A718D206E3000E5212 /* QBLimitedOscillator.cpp */,
+				C134A7A818D206E3000E5212 /* QBLimitedOscillator.h */,
+				C1270C00189AF77500F21F79 /* LFO.cpp */,
+				C1270C01189AF77500F21F79 /* LFO.h */,
+				C1270C04189AF77500F21F79 /* Oscillator.cpp */,
+				C1270C05189AF77500F21F79 /* Oscillator.h */,
+			);
+			name = Oscillators;
+			sourceTree = "<group>";
+		};
+		4A6C7F1E1E240DB4009CF673 /* Core Components */ = {
+			isa = PBXGroup;
+			children = (
+				C1270C24189AFAB800F21F79 /* MiniSynthVoice.cpp */,
+				C1270C25189AFAB800F21F79 /* MiniSynthVoice.h */,
+				C1270BF8189AF77500F21F79 /* DCA.cpp */,
+				C1270BF9189AF77500F21F79 /* DCA.h */,
+				C1270BFC189AF77500F21F79 /* EnvelopeGenerator.cpp */,
+				C1270BFD189AF77500F21F79 /* EnvelopeGenerator.h */,
+				C1270C02189AF77500F21F79 /* ModulationMatrix.cpp */,
+				C1270C03189AF77500F21F79 /* ModulationMatrix.h */,
+				C1270C09189AF77500F21F79 /* Voice.cpp */,
+				C1270C0A189AF77500F21F79 /* Voice.h */,
+			);
+			name = "Core Components";
+			sourceTree = "<group>";
+		};
+		4A6C7F1F1E240DD3009CF673 /* Includes */ = {
+			isa = PBXGroup;
+			children = (
+				C14B5826189BFD4700ACF224 /* pluginobjects.cpp */,
+				C1270C06189AF77500F21F79 /* pluginconstants.h */,
+				C1270C07189AF77500F21F79 /* synthfunctions.h */,
+				C1270C08189AF77500F21F79 /* SynthParamLimits.h */,
+			);
+			name = Includes;
+			sourceTree = "<group>";
+		};
 		82B15A0A174BC602002828C7 /* AU/CoreAudio */ = {
 			isa = PBXGroup;
 			children = (
@@ -773,32 +845,10 @@
 		C12708AC189A9EE700F21F79 /* SynthCore */ = {
 			isa = PBXGroup;
 			children = (
-				C134A7A718D206E3000E5212 /* QBLimitedOscillator.cpp */,
-				C134A7A818D206E3000E5212 /* QBLimitedOscillator.h */,
-				C14B5826189BFD4700ACF224 /* pluginobjects.cpp */,
-				C1270C2C189AFC2500F21F79 /* VAOnePoleFilter.cpp */,
-				C1270C2D189AFC2500F21F79 /* VAOnePoleFilter.h */,
-				C1270C24189AFAB800F21F79 /* MiniSynthVoice.cpp */,
-				C1270C25189AFAB800F21F79 /* MiniSynthVoice.h */,
-				C1270C26189AFAB800F21F79 /* MoogLadderFilter.cpp */,
-				C1270C27189AFAB800F21F79 /* MoogLadderFilter.h */,
-				C1270BF8189AF77500F21F79 /* DCA.cpp */,
-				C1270BF9189AF77500F21F79 /* DCA.h */,
-				C1270BFC189AF77500F21F79 /* EnvelopeGenerator.cpp */,
-				C1270BFD189AF77500F21F79 /* EnvelopeGenerator.h */,
-				C1270BFE189AF77500F21F79 /* Filter.cpp */,
-				C1270BFF189AF77500F21F79 /* Filter.h */,
-				C1270C00189AF77500F21F79 /* LFO.cpp */,
-				C1270C01189AF77500F21F79 /* LFO.h */,
-				C1270C02189AF77500F21F79 /* ModulationMatrix.cpp */,
-				C1270C03189AF77500F21F79 /* ModulationMatrix.h */,
-				C1270C04189AF77500F21F79 /* Oscillator.cpp */,
-				C1270C05189AF77500F21F79 /* Oscillator.h */,
-				C1270C06189AF77500F21F79 /* pluginconstants.h */,
-				C1270C07189AF77500F21F79 /* synthfunctions.h */,
-				C1270C08189AF77500F21F79 /* SynthParamLimits.h */,
-				C1270C09189AF77500F21F79 /* Voice.cpp */,
-				C1270C0A189AF77500F21F79 /* Voice.h */,
+				4A6C7F1F1E240DD3009CF673 /* Includes */,
+				4A6C7F1E1E240DB4009CF673 /* Core Components */,
+				4A6C7F1D1E240D97009CF673 /* Oscillators */,
+				4A6C7F121E2334B7009CF673 /* Filters */,
 			);
 			name = SynthCore;
 			sourceTree = "<group>";
@@ -1006,6 +1056,7 @@
 				C1270962189AA2A800F21F79 /* CAAtomic.h in Headers */,
 				C1270989189AA2A800F21F79 /* SynthElement.h in Headers */,
 				C127097C189AA2A800F21F79 /* CAThreadSafeList.h in Headers */,
+				4A6C7F1C1E235202009CF673 /* MultiFilter.h in Headers */,
 				C127099E189AA37100F21F79 /* AUSynthVersion.h in Headers */,
 				C1270960189AA2A800F21F79 /* AUScopeElement.h in Headers */,
 				C127098A189AA2A800F21F79 /* SynthEvent.h in Headers */,
@@ -1024,11 +1075,13 @@
 				C127095C189AA2A800F21F79 /* AUOutputElement.h in Headers */,
 				C1270959189AA2A800F21F79 /* AUMIDIBase.h in Headers */,
 				C1270955189AA2A800F21F79 /* AUInputElement.h in Headers */,
+				4A6C7F241E24570A009CF673 /* KThreeFiveFilter.h in Headers */,
 				C127094F189AA2A800F21F79 /* AUBuffer.h in Headers */,
 				C127099D189AA37100F21F79 /* AUSynthStructures.h in Headers */,
 				C1270985189AA2A800F21F79 /* MIDIControlHandler.h in Headers */,
 				C1270C1A189AF77500F21F79 /* ModulationMatrix.h in Headers */,
 				C127096B189AA2A800F21F79 /* CADebugger.h in Headers */,
+				4A6C7F181E233655009CF673 /* SEMFilter.h in Headers */,
 				C1270976189AA2A800F21F79 /* CAMath.h in Headers */,
 				C134A7AA18D206E3000E5212 /* QBLimitedOscillator.h in Headers */,
 				C1270C18189AF77500F21F79 /* LFO.h in Headers */,
@@ -1314,6 +1367,7 @@
 				C1270C19189AF77500F21F79 /* ModulationMatrix.cpp in Sources */,
 				C1270C28189AFAB800F21F79 /* MiniSynthVoice.cpp in Sources */,
 				C127096A189AA2A800F21F79 /* CADebugger.cpp in Sources */,
+				4A6C7F1A1E2351EE009CF673 /* MultiFilter.cpp in Sources */,
 				C127094E189AA2A800F21F79 /* AUBuffer.cpp in Sources */,
 				C1270C13189AF77500F21F79 /* EnvelopeGenerator.cpp in Sources */,
 				C1270C1B189AF77500F21F79 /* Oscillator.cpp in Sources */,
@@ -1323,6 +1377,7 @@
 				C1270988189AA2A800F21F79 /* SynthElement.cpp in Sources */,
 				C127094A189AA2A800F21F79 /* AUBase.cpp in Sources */,
 				C14B5827189BFD4700ACF224 /* pluginobjects.cpp in Sources */,
+				4A6C7F261E24571C009CF673 /* KThreeFiveFilter.cpp in Sources */,
 				C127095D189AA2A800F21F79 /* AUPlugInDispatch.cpp in Sources */,
 				C1270986189AA2A800F21F79 /* MusicDeviceBase.cpp in Sources */,
 				C1270956189AA2A800F21F79 /* AUInstrumentBase.cpp in Sources */,
@@ -1339,6 +1394,7 @@
 				C1270964189AA2A800F21F79 /* CAAudioChannelLayout.cpp in Sources */,
 				C1270952189AA2A800F21F79 /* AUEffectBase.cpp in Sources */,
 				C127098B189AA2A800F21F79 /* SynthNote.cpp in Sources */,
+				4A6C7F171E233655009CF673 /* SEMFilter.cpp in Sources */,
 				C1270C2A189AFAB800F21F79 /* MoogLadderFilter.cpp in Sources */,
 				C127097A189AA2A800F21F79 /* CAStreamBasicDescription.cpp in Sources */,
 			);

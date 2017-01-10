@@ -279,6 +279,7 @@ struct globalFilterParams
 	double dSaturation;
 	UINT uFilterType;		
 	UINT uNLP;
+    UINT uFilterMode;
 };
 
 struct globalEGParams
